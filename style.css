@@ -1,0 +1,61 @@
+body {
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th,
+td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: center;
+}
+
+.input-center {
+    text-align: center;
+}
+
+.bmi-section {
+    margin-top: 30px;
+}
+
+.image-container {
+    height: 150px;
+    /* 画像の表示領域を確保 */
+    margin-bottom: 10px;
+}
+
+#img {
+    max-height: 100%;
+}
+
+.name-table {
+    width: 420px;
+}
+
+.input-table {
+    height: 100px;
+}
+
+.result-table {
+    width: 423px;
+    height: 100px;
+}
+
+.judgement-table {
+    width: 200px;
+    height: 100px;
+}
+
+.action-area {
+    margin: 15px 0;
+}
+
+#checkButton {
+    padding: 10px 25px;
+    cursor: pointer;
+}

@@ -1,87 +1,71 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>BMI計算ページ</title>
-    </head>
-    <body>
-            <h1> 名前入力 </h1>
-            <table border="1" width="420" > 
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI計算ページ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>名前入力</h1>
+    <table class="name-table">
+        <tr>
+            <th>苗字</th>
+            <th>名前</th>
+        </tr>
+        <tr>
+            <td><input type="text" class="input-center" size="24"></td>
+            <td><input type="text" class="input-center" size="24"></td>
+        </tr>
+    </table>
+
+    <section class="bmi-section">
+        <h2>BMI計算</h2>
+        <div class="image-container">
+            <img id="img" alt="判定イメージ">
+        </div>
+
+        <div class="calculator-container">
+            <table class="input-table">
                 <tr>
-                    <th height="50"> 苗字 </th>
-                    <th height="50
-                    "> 名前 </th>
-                </tr> 
-                <tr> 
-                    <td><input type="text" style="text-align: center;" size="24"></td>
-                    <td><input type="text" style="text-align: center;" size="24"></td>
+                    <th>身長</th>
+                    <th>体重</th>
+                </tr>
+                <tr>
+                    <td><input type="number" id="height" step="0.1" class="input-center"> cm</td>
+                    <td><input type="number" id="weight" step="0.1" class="input-center"> kg</td>
                 </tr>
             </table>
-        <p>
-            <h2> BMI計算 </h2>
-            <img id="img" name="img" style="text-align: center">   
-            <div  style="float:left">
-                <form method="post" oninput="result.value=Math.round(parseFloat(num2.value) * parseFloat(num2.value) / parseFloat(num1.value) * 10) / 10;">
-                    <table border="1" height="100"> 
-                        <tr>
-                            <th height="50%">身長</th>
-                            <th height="50%">体重</th>
-                        </tr>
-                        <tr height="100%">   
-                            <td><input type="number" name="num1" step="0.1"  style="text-align: center;" value=""> cm </td>
-                            <td><input type="number" name="num2" step="0.1" style="text-align: center;" value=""> kg </td>
-                        </tr>
-                    </table>
-                    <table border="1" width="423" height="100">
-                        <tr>
-                            <th wight="100%">BMI</th>
-                        </tr>
-                        <tr height="50%">
-                            <td style="text-align:center;"><output name="result" id="resultBMI" ></output></td>
-                        </tr>
-                    </table>
-                    <p>
-                        <input type="button" value="Check" id="checkButton" onclick="_resultScore(result.value)">
-                    </p>
-                    <table border="1" width="200" height="100">
-                        <tr>
-                            <th height="50%">判定</th>
-                        </tr>
-                        <tr height="100%">
-                            <td style="text-align: center;"><p id="resultType"></p></td>
-                        </tr>
-                    </table>            
-                    <script type="text/javascript">
-                        function _resultScore(score){
-                            if(score < 18.5){
-                                document.getElementById("resultType").innerHTML = '低体重：やせすぎ';
-                                document.getElementById("img").src="https://4.bp.blogspot.com/-fHP-QIIkZrM/V8qnkaT8AqI/AAAAAAAA9iI/AkpdtT7Wm04iJ6_Tu3QDIEzjFBEsYubNACLcB/s800/body_man_soushin.png";
-                            }else if(score >= 18.5 && score < 25){
-                                document.getElementById("resultType").innerHTML = '標準:健康';
-                                document.getElementById("img").src="https://4.bp.blogspot.com/-ozhBeke0hm8/V8VE8Hwx0vI/AAAAAAAA9Vk/7D12hDYrsJIECiFq3XJ0X4gCcJECrmoTACLcB/s800/body_man_normal.png";
-                            }
-                            else if(score >= 25 && score < 30){
-                                document.getElementById("resultType").innerHTML = '肥満1：肥満一歩手前';
-                                document.getElementById("img").src="https://4.bp.blogspot.com/-a-lsFDjTbNw/XMZ92Zob3RI/AAAAAAABSl0/RBNctkyMpdM1vykUqisYiRI4gZ0vbKlCgCLcBGAs/s800/himan_pocchari_businessman.png";
-                            }
-                            else if(score >= 30 && score < 35){
-                                document.getElementById("resultType").innerHTML = '肥満2：肥満の仲間入り';
-                                document.getElementById("img").src="https://1.bp.blogspot.com/-Y245FqUMlWk/UZmCOrAzz4I/AAAAAAAATeQ/pSY8PLmhZVo/s800/metabolic_man.png";
-                            }
-                            else if(score >= 35 && score < 40){
-                                document.getElementById("resultType").innerHTML = '肥満3：肥満人';
-                                document.getElementById("img").src="https://1.bp.blogspot.com/-g-uMNDDGaLM/V8VE8ABT27I/AAAAAAAA9Vg/emQo8OVpb_8TeeBq3Ufvg-Ox_h_hJlJAwCLcB/s800/body_man_himan.png";
-                            }
-                            else if(score >= 40){
-                                document.getElementById("resultType").innerHTML = '肥満3：肥満の英雄';
-                                document.getElementById("img").src="https://4.bp.blogspot.com/-evvzB9SQso8/W8hDuwMX2LI/AAAAAAABPfA/WIYMs2oOTGk4L_H8eghp8q_LO0QKo9XzgCLcBGAs/s450/diet_before_man.png";
-                            }
-                            let checkBuntton = document.getElementById('checkButton');
-                            checkBuntton.addEventListener('click', buttonClick);
-                        }                 
-                    </script>  
-                </form>
-            </div>  
-        </p>
-    </body>
+
+            <table class="result-table">
+                <tr>
+                    <th>BMI</th>
+                </tr>
+                <tr>
+                    <td id="resultBMI">--</td>
+                </tr>
+            </table>
+
+            <div class="action-area">
+                <button type="button" id="checkButton">Check</button>
+            </div>
+
+            <table class="judgement-table">
+                <tr>
+                    <th>判定</th>
+                </tr>
+                <tr>
+                    <td>
+                        <p id="resultType"></p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
 </html>
