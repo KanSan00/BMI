@@ -1,2 +1,2 @@
 # BMI
-* [BMIを計算するページ](https://araikanta.github.io/BMI/)
+* [BMIを計算するページ](https://kansan00.github.io/BMI/)
